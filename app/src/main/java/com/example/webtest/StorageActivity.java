@@ -13,7 +13,9 @@ import com.example.webtest.database.Database;
 import com.example.webtest.database.LangPair;
 
 import java.util.List;
-
+/*
+ *Класс необходимый для отображения всех сохраненных пар слов
+ * */
 public class StorageActivity extends AppCompatActivity
         implements LangPairAdapter.LangPairViewHolder.OnItemLongClickListener {
     public LangPairAdapter adapter;
@@ -29,11 +31,14 @@ public class StorageActivity extends AppCompatActivity
         initLangPairList();
     }
     private void initLangPairList(){
+        //Начинаем загрузку всех слов из БД
         progress.setVisibility(View.VISIBLE);
         Runnable loadLangPairs = ()->{
+            //Получаем список всех слов в виде обьектов LangPair
             langPairList = Database.getAllLangPairs();
             if(langPairList == null) return;
             runOnUiThread(()->{
+                //После загрузки отображаем результат в интерфейсе
                 progress.setVisibility(View.INVISIBLE);
                 adapter = new LangPairAdapter(getBaseContext(), langPairList, this);
                 langPairListView.setAdapter(adapter);
@@ -42,7 +47,7 @@ public class StorageActivity extends AppCompatActivity
         new Thread(loadLangPairs).start();
     }
 
-
+    //Событие клика на элементы списка, при долгом клике происходит удаление элемента
     @Override
     public void itemClick(int position) {
         Runnable removeLangPairRnb = ()->{

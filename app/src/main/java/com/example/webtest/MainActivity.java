@@ -76,9 +76,15 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
     }
+    /*
+    * Кнопка для сохранения в БД
+    * */
     public void saveBtnInit(){
+        //Проверяем на ошибки
         if (textInput.getText().toString().matches(" *") || currentLangPair == null) return;
+        //Сохраняем в БД через поток
         saveBtn.setOnClickListener((view)->{
+            //Смотрим что бы БД была проинициализиованна
             if(Database.db == null) return;
             Runnable insertRnb = ()->{
                 Database.insertLangPair(currentLangPair);
@@ -89,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
             new Thread(insertRnb).start();
         });
     }
+    //Иниц. БД
     private void DatabaseInit(){
         if(Database.db != null) return;
         Runnable loadDatabase = () -> {
