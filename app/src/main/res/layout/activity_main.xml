@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <LinearLayout
+        android:id="@+id/translate_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:padding="5dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintVertical_bias="0.35">
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:layout_marginBottom="10dp">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="Введите текст..." />
+        </com.google.android.material.textfield.TextInputLayout>
+        <TextView
+            android:id="@+id/translated_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxHeight="150dp"
+            android:text="Здесь будет ваш перевод..."
+            android:textSize="20sp"
+            android:paddingEnd="5dp"
+            android:paddingStart="10dp"
+            android:scrollbars="vertical"
+            android:layout_marginBottom="10dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp"
+            android:gravity="center">
+            <Button
+                android:id="@+id/translate_text_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Перевести"
+                android:layout_marginEnd="5dp" />
+            <Button
+                android:id="@+id/save_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Сохранить"/>
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="invisible"/>
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/storage_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_list"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintVertical_bias="0.97"
+        app:layout_constraintHorizontal_bias="0.95"
+        />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

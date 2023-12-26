@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">APITranslate</string>
+    <string name="lang_pair_pattern">%s - %s</string>
+</resources>
