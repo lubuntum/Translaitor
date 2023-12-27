@@ -81,9 +81,10 @@ public class MainActivity extends AppCompatActivity {
     * */
     public void saveBtnInit(){
         //Проверяем на ошибки
-        if (textInput.getText().toString().matches(" *") || currentLangPair == null) return;
+
         //Сохраняем в БД через поток
         saveBtn.setOnClickListener((view)->{
+            if (textInput.getText().toString().matches(" *") || currentLangPair == null) return;
             //Смотрим что бы БД была проинициализиованна
             if(Database.db == null) return;
             Runnable insertRnb = ()->{

@@ -24,7 +24,6 @@ public class Database {
         if(db == null) return null;
         Cursor query = db.rawQuery("SELECT * FROM lang_pairs", null);
         List<LangPair> langPairs = new ArrayList<>();
-        int idIndex = query.getColumnIndex("id");
         while (query.moveToNext()){
             int id = Integer.valueOf(query.getString(0));
             String original = query.getString(1);
